@@ -51,7 +51,7 @@
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $transaction->category->name }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $transaction->created_at->format('Y-m-d') }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <!--<a href="{{ route('transactions.edit', $transaction->id) }}" class="text-indigo-600 hover:text-indigo-900 inline-block bg-transparent text-blue-600 font-semibold hover:text-blue-800 py-2 px-4 border border-blue-500 hover:border-blue-800 rounded">Editar</a>-->
+                                            <a href="{{ route('transactions.edit', $transaction->id) }}" class="text-indigo-600 hover:text-indigo-900 inline-block bg-transparent text-blue-600 font-semibold hover:text-blue-800 py-2 px-4 border border-blue-500 hover:border-blue-800 rounded">Editar</a>
 
                                             <button type="button" onclick="confirmDelete({{ $transaction->id }})" class="text-red-600 hover:text-red-900 ml-2 inline-block bg-transparent text-red-600 font-semibold hover:text-red-800 py-2 px-4 border border-red-500 hover:border-red-800 rounded">Eliminar</button>
 

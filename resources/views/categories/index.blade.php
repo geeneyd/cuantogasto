@@ -41,10 +41,10 @@
                                             </span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <a href="{{ route('categories.edit', $category->id) }}" class="text-indigo-600 hover:text-indigo-900 inline-block bg-transparent text-blue-600 font-semibold hover:text-blue-800 py-2 px-4 border border-blue-500 hover:border-blue-800 rounded">Editar</a>
-
-                                            <button type="button" onclick="confirmDelete({{ $category->id }})" class="text-red-600 hover:text-red-900 ml-2 inline-block bg-transparent text-red-600 font-semibold hover:text-red-800 py-2 px-4 border border-red-500 hover:border-red-800 rounded">Eliminar</button>
-
+                                            @if(is_numeric($category->user_id))
+                                                <a href="{{ route('categories.edit', $category->id) }}" class="text-indigo-600 hover:text-indigo-900 inline-block bg-transparent text-blue-600 font-semibold hover:text-blue-800 py-2 px-4 border border-blue-500 hover:border-blue-800 rounded">Editar</a>
+                                                <button type="button" onclick="confirmDelete({{ $category->id }})" class="text-red-600 hover:text-red-900 ml-2 inline-block bg-transparent text-red-600 font-semibold hover:text-red-800 py-2 px-4 border border-red-500 hover:border-red-800 rounded">Eliminar</button>
+                                            @endif
                                             <!-- Formulario de eliminación -->
                                             <form id="deleteForm{{ $category->id }}" action="{{ route('categories.destroy', $category->id) }}" method="POST" class="hidden">
                                                 @csrf
@@ -59,12 +59,12 @@
                                
 
                       
-                    <!-- MODAL INGRESOS -->
+                    <!-- MODAL -->
                     <x-modal name="modal" focusable>
                         <form action="{{ route('categories.store') }}" method="POST" class="p-6">
                             @csrf
                             
-                            <input type="hidden" name="icon" value="">
+                            <input type="hidden" name="icon" value="-">
                             <h1 class="text-center mb-4 text-xl font-bold text-gray-700">{{ __('Nueva Categoria') }}</h1>
                         
                             <div class="mb-4">

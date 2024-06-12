@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('icon');
             $table->enum('type', ['default', 'income', 'spent'])->default('default');
-            $table->unsignedBigInteger('user_id')->nullable(); // Campo opcional de ID de usuario
+            $table->unsignedBigInteger('user_id')->nullable()->default(null); // Campo opcional de ID de usuario
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

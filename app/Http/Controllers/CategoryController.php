@@ -46,7 +46,8 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-        return view('categories.edit', compact('category'));
+        $categories = Category::all();
+        return view('categories.edit', compact('category', 'categories'));
     }
 
     public function update(Request $request, Category $category)
@@ -55,12 +56,23 @@ class CategoryController extends Controller
             'name' => 'required|string',
             'icon' => 'required|string',
             'type' => 'required|in:default,income,spent',
-            'user_id' => 'nullable|exists:users,id',
+            //'user_id' => 'nullable|exists:users,id',
         ]);
 
-        $category->update($request->all());
+        // Obtener el ID del usuario actualmente autenticado
+        $userId = Auth::user()->id;
 
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+        // Crear la categoría con el user_id del usuario autenticado
+        $data = [
+            'name' => $request->name,
+            'icon' => $request->icon,
+            'type' => $request->type,
+            'user_id' => $userId,
+        ];
+
+        $category->update($data);
+
+        return redirect()->route('categories.index')->with('success', 'Categoría actualizada exitosamente.');
     }
 
     public function destroy(Category $category)
