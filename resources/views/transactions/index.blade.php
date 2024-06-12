@@ -41,7 +41,7 @@
                                 @foreach($transactions as $transaction)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $transaction->description }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $transaction->amount }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">$ {{ number_format($transaction->amount, 0, ',', '.') }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <span class="@if($transaction->type === 'income') text-green-600 @elseif($transaction->type === 'expense') text-red-600 @endif">
                                                 {{ __($transaction->type) }}

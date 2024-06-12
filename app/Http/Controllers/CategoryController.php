@@ -10,7 +10,11 @@ class CategoryController extends Controller
 {
     public function index()
     {
+        $userId = auth()->id(); // Obtener el ID del usuario autenticado
         $categories = Category::all();
+        $categories = Category::where('user_id', $userId)
+            ->orWhereNull('user_id')
+            ->get();
         return view('categories.index', compact('categories'));
     }
 

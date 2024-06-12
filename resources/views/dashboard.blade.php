@@ -10,19 +10,19 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="container mx-auto px-4 py-8">
                     <div class="mb-8">
-                        <h1 class="text-2xl font-bold mb-4">Resumen Financiero del Mes</h1>
+                        <h1 class="text-2xl font-bold mb-4">Resumen de {{ ucfirst(\Carbon\Carbon::now()->translatedFormat('F')) }}</h1>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             <div class="bg-green-200 p-4 rounded shadow">
                                 <h2 class="text-lg font-bold mb-2">Ingresos Totales</h2>
-                                <p class="text-xl">$ 4.660.500 </p>
+                                <p class="text-xl">$ {{ number_format($totalIncome, 0, ',', '.') }} </p>
                             </div>
                             <div class="bg-red-200 p-4 rounded shadow">
                                 <h2 class="text-lg font-bold mb-2">Gastos Totales</h2>
-                                <p class="text-xl">$ 3.970.000 </p>
+                                <p class="text-xl">$ {{ number_format($totalExpense, 0, ',', '.') }} </p>
                             </div>
                             <div class="bg-blue-200 p-4 rounded shadow">
                                 <h2 class="text-lg font-bold mb-2">Saldo del Mes</h2>
-                                <p class="text-xl">$ 690.500 </p>
+                                <p class="text-xl">$ {{ number_format($restaTotales, 0, ',', '.') }} </p>
                             </div>
                         </div>
                     </div>
@@ -33,21 +33,17 @@
                             <div>
                                 <h3 class="text-lg font-bold mb-2">Categorías con más Ingresos</h3>
                                 <ul>
-                                    <li>Salario: $ 3.000.000 </li>
-                                    <li>Ventas: $ 1.000.000 </li>
-                                    <li>Comisiones: $ 140.500 </li>
-                                    <li>Alquiler: $ 500.000 </li>
-                                    <li>Intereses: $ 20.500 </li>
+                                    @foreach($topIncomeCategories as $category)
+                                        <li><b>{{ $loop->iteration }}. {{ $category->category->name }}:</b> $ {{ number_format($category->total, 0, ',', '.') }}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold mb-2">Categorías con más Gastos</h3>
                                 <ul>
-                                    <li>Comida: $ 700.560 </li>
-                                    <li>Transporte: $ 400.200 </li>
-                                    <li>Facturas: $ 300.000 </li>
-                                    <li>Entretenimiento: $ 70.000 </li>
-                                    <li>Salud: $ 50.000 </li>
+                                    @foreach($topExpenseCategories as $category)
+                                        <li><b>{{ $loop->iteration }}. {{ $category->category->name }}:</b> $ {{ number_format($category->total, 0, ',', '.') }}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

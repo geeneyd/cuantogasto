@@ -11,7 +11,13 @@ class TransactionController extends Controller
 
     public function index()
     {
-        $transactions = Transaction::with('user', 'category')->orderBy('created_at', 'desc')->get();
+
+        $userId = auth()->id(); // Obtener el ID del usuario autenticado
+
+        $transactions = Transaction::with('user', 'category')
+            ->where('user_id', $userId) // Filtrar por el ID del usuario autenticado
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         // Obtener las categorías según los criterios especificados
         $categoryIncome = Category::where('type', 'income')->whereNull('user_id')->get();
