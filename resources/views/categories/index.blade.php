@@ -34,7 +34,7 @@
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach($categories as $category)
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $category->name }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ ucfirst($category->name) }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <span class="@if($category->type === 'income') text-green-600 @elseif($category->type === 'spent') text-red-600 @endif">
                                                 {{ __($category->type) }}

@@ -45,7 +45,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+        return redirect()->route('categories.index')->with('success', 'Categoría creada exitosamente.');
     }
 
     public function edit(Category $category)
@@ -83,6 +83,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+        return redirect()->route('categories.index')->with('success', 'Categoría eliminada exitosamente.');
     }
 }

@@ -51,7 +51,7 @@
                 
                     <div>
                         <h2 class="text-2xl font-bold mb-4">Filtrar por Rango de Fechas</h2>
-                        <form action="#" method="GET" class="flex flex-col sm:flex-row sm:items-center">
+                        <form action="{{ route('export.transactions') }}" method="GET" class="flex flex-col sm:flex-row sm:items-center">
                             <div class="mb-4 sm:mr-4">
                                 <label for="start_date" class="block mb-2">Fecha de inicio:</label>
                                 <input type="date" id="start_date" name="start_date" class="px-4 py-2 border rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
@@ -61,7 +61,7 @@
                                 <input type="date" id="end_date" name="end_date" class="px-4 py-2 border rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                             </div>
                             <div>
-                                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Filtrar</button>
+                                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Exportar Transacciones</button>
                             </div>
                         </form>
                     </div>

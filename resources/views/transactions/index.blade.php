@@ -40,7 +40,7 @@
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach($transactions as $transaction)
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $transaction->description }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ ucfirst($transaction->description) }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">$ {{ number_format($transaction->amount, 0, ',', '.') }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <span class="@if($transaction->type === 'income') text-green-600 @elseif($transaction->type === 'expense') text-red-600 @endif">
@@ -48,7 +48,7 @@
                                             </span>
                                         </td>
                                         
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $transaction->category->name }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ ucfirst($transaction->category->name) }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $transaction->created_at->format('Y-m-d') }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <a href="{{ route('transactions.edit', $transaction->id) }}" class="text-indigo-600 hover:text-indigo-900 inline-block bg-transparent text-blue-600 font-semibold hover:text-blue-800 py-2 px-4 border border-blue-500 hover:border-blue-800 rounded">Editar</a>
@@ -173,7 +173,7 @@
 <script>
     function confirmDelete(transactionId) {
         // Utilizando la función confirm() de JavaScript
-        if (confirm("¿Estás seguro de que quieres eliminar este registro?")) {
+        if (confirm("¿Estás seguro de que quieres eliminar esta categoría? Esta acción también eliminará todas las transacciones asociadas.")) {
             // Si el usuario confirma, se envía el formulario de eliminación
             document.getElementById("deleteForm" + transactionId).submit();
         }

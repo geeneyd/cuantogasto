@@ -78,7 +78,7 @@ class TransactionController extends Controller
 
         Transaction::create($data);
 
-        return redirect()->route('transactions.index')->with('success', __('Transaction created successfully.'));
+        return redirect()->route('transactions.index')->with('success', __('Transacción creada exitosamente.'));
     }
 
 
@@ -138,14 +138,14 @@ class TransactionController extends Controller
 
         $transaction->update($data);
 
-        return redirect()->route('transactions.index')->with('success', 'Transaction updated successfully.');
+        return redirect()->route('transactions.index')->with('success', 'Transacción actualizada exitosamente.');
     }
 
     public function destroy(Transaction $transaction)
     {
         $transaction->delete();
 
-        return redirect()->route('transactions.index')->with('success', 'Transacción actualizada exitosamente.');
+        return redirect()->route('transactions.index')->with('success', 'Transacción eliminada exitosamente.');
     }
 
 }
