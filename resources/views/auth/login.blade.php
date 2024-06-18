@@ -1,6 +1,7 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    <h1 style="margin-top: -20px; margin-bottom: 30px; font-size: 1.5rem; text-align: center;" class="text-xl font-semibold text-gray-900">CuantoGasto</h1>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf

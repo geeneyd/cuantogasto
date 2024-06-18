@@ -18,8 +18,9 @@
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
         <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
             <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
+                <h1 style="margin-top: 40px; margin-bottom: 30px; font-size: 2rem;" class="text-xl font-semibold text-gray-900">CuantoGasto</h1>
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                    <header class="flex items-center justify-between px-4 py-6 sm:px-6 lg:px-8" style="margin-top: 60px; margin-bottom: 40px;">
+                    <header class="flex items-center justify-between px-4 py-6 sm:px-6 lg:px-8" style="margin-top: 20px; margin-bottom: 20px;">
                         <div class="flex">
                             <!-- Logo u otro contenido en la primera columna -->
                         </div>
@@ -34,7 +35,7 @@
                                         </a>
                                     @else
                                         <a href="{{ route('login') }}"
-                                            style="padding: 12px; border-radius: 8px; margin-right: 20px; color: #fff; background-color: #FF2D20;"
+                                            style="padding: 12px; border-radius: 8px; margin-right: 20px; color: #fff; background-color: rgb(31 41 55 / var(--tw-bg-opacity));"
                                            class="inline-block text-xl font-semibold text-gray-900 dark:text-white bg-white shadow-md hover:bg-gray-100 dark:hover:bg-gray-800">
                                             {{ __('Login') }}
                                         </a>
@@ -52,7 +53,6 @@
                         </div>
                     </header>
                     
-
                     <main class="mt-6">
                         <div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
                             <div

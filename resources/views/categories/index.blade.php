@@ -101,7 +101,7 @@
 <script>
     function confirmDelete(categoryId) {
         // Utilizando la función confirm() de JavaScript
-        if (confirm("¿Estás seguro de que quieres eliminar esta categoria?")) {
+        if (confirm("Esta acción eliminará permanentemente la categoría y todas las transacciones asociadas.")) {
             // Si el usuario confirma, se envía el formulario de eliminación
             document.getElementById("deleteForm" + categoryId).submit();
         }
